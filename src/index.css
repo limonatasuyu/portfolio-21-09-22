@@ -1,13 +1,329 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&display=swap');
+
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #E6E7EB;
+  --bg-tertiary: #000000;
+  --bg-quaternary: #03FFC5;
+  --bg-other: #EBEAE6;
+  --txt-clr-primary: #000000;
+  --txt-clr-secondary: #FFFFFF;
+  --txt-clr-tertiary: #B7B4B9;
+  --header-font: 'Abril Fatface', cursive;
+  --text-font: 'Mulish', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  padding: 3rem;
+  font-family: var(--text-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+.flex { display: flex; }
+.grid { display: grid; }
+
+h1 {
+  font-family: var(--header-font);
+  font-weight: 500;
+  font-size: 3rem;
+}
+
+
+* {z-index: 0} /*To make text shadow visible, unless text shadow will be under the background*/
+.text-shadow {
+  display: block;
+  background-color: var(--bg-quaternary);
+  position: relative;
+  z-index: -1 !important;
+}
+
+.fancy-button-wrapper {
+  border: 4px solid var(--bg-tertiary);
+  width: 13rem;
+  cursor: pointer;
+}
+
+.fancy-button {
+  width: 100%;
+  height: 3.5rem;
+  font-size: 1.35rem;
+  font-weight: bold;
+  border: none; outline: none;
+  color: var(--txt-clr-secondary);
+  background-color: var(--bg-tertiary);
+  position: relative;
+  bottom: 1rem;
+  right: .7rem;
+  cursor: pointer;
+  
+  appearance: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  
+  padding-bottom: .2rem;
+}
+
+
+.fancy-button-wrapper:hover > .fancy-button {
+  animation: fancy-button-animation;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+
+}
+
+@keyframes fancy-button-animation {
+  from {bottom: 1rem; right: .7rem;}
+  to {bottom: 0; right: 0;}
+}
+
+
+
+.main-section {
+  background-color: var(--bg-secondary);  
+  width: 100%;
+}
+
+.navigation {
+  justify-self: end;
+  font-weight: bold;
+  gap: .5rem;
+  margin-right: 1rem;
+  font-size: .9rem;
+  word-spacing: .05rem;
+}
+
+.navigation > a {
+  text-decoration: none;
+  color: black;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+
+}
+.navigation p, .navigation > a {cursor: pointer; font-size: 1.2rem;}
+.navigation p:hover, .navigation > a:hover {color: var(--txt-clr-tertiary);}
+
+.nav-shadow-1 {
+  height: .5rem;
+  width: 5rem;
+  bottom: .5rem;
+}
+
+.nav-shadow-2 {
+  height: .5rem;
+  width: 4rem;
+  bottom: .5rem;
+}
+
+.content {
+  margin-left: 4rem;
+  margin-top: 5rem;
+}
+
+.headers-container h1 {
+  margin-block-start: 0; margin-block-end: 0;
+}
+
+.main-header-shadow-1 {
+  width: 12.7rem;
+  height: 2rem;
+  left: 4.4rem;
+  bottom: 2.6rem;
+}
+
+.main-header-shadow-2 {
+  width: 6.5rem;
+  height: 2rem;
+  bottom: 2.6rem;
+}
+
+.main-section-text {
+  font-size: 1.5rem;
+  width: 45rem;
+  max-width: 60vw;
+  padding-bottom: 2rem;
+}
+
+.socials-container {
+  position: absolute;
+  height: 15rem;
+  margin-top: 6rem;
+  margin-left: 3rem;
+  background-color: var(--bg-primary);
+  padding: .5rem;
+  border-radius: 10px;
+}
+.social-logo {
+  width: 4rem;
+  margin: 0;
+}
+
+.scroll-text {
+  -moz-transform: scale(-1, -1) rotate(270deg);
+  -webkit-transform: scale(-1, -1) rotate(270deg);
+  -o-transform: scale(-1, -1) rotate(270deg);
+  -ms-transform: scale(-1, -1) rotate(270deg);
+  transform: scale(-1, -1) rotate(270deg);
+  width: 10rem;
+  font-size: 1.15rem;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+  line-height: 3rem;
+  justify-self: end;
+  margin-top: 5rem;
+  position: relative;
+  cursor: default;
+}
+
+
+
+.skills-section {
+  background-color: var(--bg-other);
+  padding-bottom: 5rem;
+  margin-top: 5rem; 
+  height: 30rem;
+}
+.skills-header {
+  font-size: 3rem;
+  padding-top: 2rem;
+  margin-left: 2rem;
+}
+.skills-section-content {
+  gap: 5rem;
+  margin-left: 5rem;
+  justify-content: center;
+  flex-wrap: wrap;  
+}
+.skills-img-container {
+  grid-gap: 2rem;
+}
+.skills-img-container-row {
+  gap: 1.5rem;
+}
+.skill-img {
+  height: 4.5rem;
+}
+
+
+.skill-description-container {width: 27rem;}
+.skill-img-big {height: 7rem; justify-self: center;}
+.skill-name {font-size: 2rem; text-align: center;}
+.skill-description {
+  font-size: 1.4rem;
+  width: 25rem;
+  margin-left: 1rem;
+  text-align: center;
+}
+
+
+.project-section {
+  justify-content: center;
+  margin-top: 5rem;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.project-text-wrapper {}
+.project-header {}
+
+.project-stack-header {font-size: 1rem; color: var(--txt-clr-tertiary)}
+.project-stack {gap: 1rem; flex-wrap: wrap;}
+
+.project-stack-item {
+  background-color: var(--bg-quaternary);
+  padding: 1rem;
+  cursor: default;
+}
+
+.project-description {
+  font-size: 1.5rem;
+  width: 45rem;
+  max-width: 60vw;
+  padding-bottom: 2rem;
+}
+
+.project-buttons-container {
+  margin-top: 3rem;
+  margin-left: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.project-img-wrapper {cursor: pointer;}
+.project-img {
+  width: 40vw;
+}
+
+.arrow-icon {
+  width: 2rem;
+  justify-self: end;
+  margin-right: 3rem;
+  margin-top: 2rem;
+}
+
+
+
+@media screen and (max-width: 1250px) {
+  .skill-img {height: 4rem;}
+  .skills-section {height: 52rem;}
+  .skills-section-content {margin-left: 0;}
+  .skill-description-container {width: 32rem;}
+  .skill-description {width: 30rem;}
+}
+
+@media screen and (max-width: 1550px) {
+  .project-img {width: 38rem}
+}
+
+
+@media screen and (max-width: 700px) {
+  .scroll-text {display: none;} .main-section {padding-bottom: 5rem;}
+  .skill-img {height: 9vw;}
+  .skill-description-container {width: 77vw}
+  .skill-img-big {height: 25vw;}
+  .skill-description {width: 70vw;}
+}
+
+
+
+@media screen and (max-width: 630px) {
+  .socials-container {
+    display: flex;
+    height: 4rem;
+    width: 15rem;
+    justify-content: space-around;
+    margin-left: 0;
+    left: 18.4vw;
+    margin-top: 3.7rem;
+   }
+   .project-img {width: 90vw;}
+}
+
+@media screen and (max-width: 550px) {
+  .content {
+    margin-left: 0;
+    display: grid;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 515px) {
+  h1 {font-size: 8vw}
+  .main-header-shadow-1 {
+    width: 33vw;
+    height: 5.5vw;
+    left: 12vw;
+    bottom: 6.8vw;
+  }
+
+.main-header-shadow-2 {
+    width: 12.7vw;
+    height: 4vw;
+    bottom: 5vw;
+  }
 }
